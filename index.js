@@ -15,12 +15,14 @@ function ChangeMethod() {
     } else if(methodSelect.value == 3) {
         SimpleFixedPoint()
     } else if(methodSelect.value == 4) {
-        FalsePosition()
+        Newton()
     } else if(methodSelect.value == 5) {
-        FalsePosition()
+        GaussElemenation()
     } else if(methodSelect.value == 6) {
-        FalsePosition()
+        LUDecomposition()
     } else if(methodSelect.value == 7) {
-        FalsePosition()
+        CramersRule()
+    } else if(methodSelect.value == 8) {
+        Secant()
     }
 }

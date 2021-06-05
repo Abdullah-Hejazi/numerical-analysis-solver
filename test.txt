@@ -4,5 +4,11 @@ bisection = 4x^3 - 6x^2 + 7x - 2.3
 falsepos = -13 - 20x + 19x^2 - 3x^3
 -1 0 1
 
-sqrt(1.9x + 2.8)
+simplefixed = sqrt(1.9x + 2.8)
 5 0.7 8
+
+newton = -0.9x^2 + 1.7x + 2.5
+5 0.7 8
+
+secant = 0.95x^3 - 5.9x^2 + 10.9x - 6
+3.5 2.5 0.5

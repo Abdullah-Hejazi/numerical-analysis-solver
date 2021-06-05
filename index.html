@@ -16,6 +16,7 @@
             <option value="2">False Position Method</option>
             <option value="3">Simple Fixed Point Method</option>
             <option value="4">Newton Method</option>
+            <option value="8">Secant Method</option>
             <option value="5">Gauss Elemenation Method</option>
             <option value="6">LU Decomposition Method</option>
             <option value="7">Cramers Rule Method</option>
@@ -73,6 +74,8 @@
             </div>
             <input id="maxIterations" type="text" class="form-control m-1" placeholder="iterations">
             <input id="decimal" type="text" class="form-control m-1" placeholder="decimal">
+
+            <button onclick="solveNewton()" class="btn btn-success mt-2">Calculate</button>
         </div>
     
         <div class="equation-container" id="secant">
@@ -85,28 +88,32 @@
             </div>
             <input id="maxIterations" type="text" class="form-control m-1" placeholder="iterations">
             <input id="decimal" type="text" class="form-control m-1" placeholder="decimal">
+            
+            <button onclick="solveSecant()" class="btn btn-success mt-2">Calculate</button>
         </div>
     
         <div class="equation-container" id="gauss">
             <h3 class="m-1 mb-4">Gauss Elemenation Method</h3>
             <div class="matrix-container">
                 <div class="matrix">
-                    <input type="text" class="form-control m-1 matrix-number">
-                    <input type="text" class="form-control m-1 matrix-number">
-                    <input type="text" class="form-control m-1 matrix-number">
-                    <input type="text" class="form-control m-1 matrix-number">
-                    <input type="text" class="form-control m-1 matrix-number">
-                    <input type="text" class="form-control m-1 matrix-number">
-                    <input type="text" class="form-control m-1 matrix-number">
-                    <input type="text" class="form-control m-1 matrix-number">
-                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number" value="2">
+                    <input type="text" class="form-control m-1 matrix-number" value="1">
+                    <input type="text" class="form-control m-1 matrix-number" value="1">
+                    <input type="text" class="form-control m-1 matrix-number" value="4">
+                    <input type="text" class="form-control m-1 matrix-number" value="1">
+                    <input type="text" class="form-control m-1 matrix-number" value="0">
+                    <input type="text" class="form-control m-1 matrix-number" value="-2">
+                    <input type="text" class="form-control m-1 matrix-number" value="2">
+                    <input type="text" class="form-control m-1 matrix-number" value="1">
                 </div>
                 <div class="matrix2">
-                    <input type="text" class="form-control m-1 matrix-number">
-                    <input type="text" class="form-control m-1 matrix-number">
-                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number" value="8">
+                    <input type="text" class="form-control m-1 matrix-number" value="11">
+                    <input type="text" class="form-control m-1 matrix-number" value="3">
                 </div>
             </div>
+            
+            <button onclick="solveGaussElemenation()" class="btn btn-success mt-2">Calculate</button>
         </div>
     
         <div class="equation-container" id="ludecomp">
@@ -171,6 +178,9 @@
     <script src="bisection.js"></script>
     <script src="falseposition.js"></script>
     <script src="simplefixedpoint.js"></script>
+    <script src="newton.js"></script>
+    <script src="gauss.js"></script>
+    <script src="secant.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
