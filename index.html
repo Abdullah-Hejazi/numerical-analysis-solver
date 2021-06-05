@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerical Analysis</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css">
+</head>
+<body>
+    <div class="select-section">
+        <select class="form-select" id="method-select">
+            <option selected value="1">Bisection Method</option>
+            <option value="2">False Position Method</option>
+            <option value="3">Simple Fixed Point Method</option>
+            <option value="4">Newton Method</option>
+            <option value="5">Gauss Elemenation Method</option>
+            <option value="6">LU Decomposition Method</option>
+            <option value="7">Cramers Rule Method</option>
+        </select>
+        <button onclick="ChangeMethod()">Select Method</button>
+    </div>
+
+    <script src="math.js"></script>
+    <script src="bisection.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

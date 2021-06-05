@@ -1,0 +1,6 @@
+.select-section {
+    width: 80vw;
+    margin: 50px auto;
+    display: flex;
+    background-color: red;
+}
