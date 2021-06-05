@@ -39,7 +39,7 @@ function startNewton() {
 
         let currentError = Math.abs(((xr - xrOld) / xr)) * 100
 
-        addIteration(i, xrOld, fxrold, fdashxrold, currentError)
+        addNewtonIteration(i, xrOld, fxrold, fdashxrold, currentError)
 
         if (currentError < error) {
             return xrOld
@@ -49,7 +49,7 @@ function startNewton() {
     return xrOld
 }
 
-function addIteration(i, xrOld, fxrold, fdashxrold, currentError) {
+function addNewtonIteration(i, xrOld, fxrold, fdashxrold, currentError) {
     var decimal = Number($('#newton #decimal').val())
     let result = $('#resultBody')
     

@@ -50,7 +50,7 @@ function startFalsePosition() {
             }
         }
 
-        addIteration(i, xl, fxl, xu, fxu, xr, fxr, currentError)
+        addFalsePositionIteration(i, xl, fxl, xu, fxu, xr, fxr, currentError)
 
         if (fxl * fxr < 0) {
             xu = xr
@@ -67,7 +67,7 @@ function startFalsePosition() {
     return xrOld
 }
 
-function addIteration(i, xl, fxl, xu, fxu, xr, fxr, currentError) {
+function addFalsePositionIteration(i, xl, fxl, xu, fxu, xr, fxr, currentError) {
     var decimal = Number($('#falseposition #decimal').val())
     let result = $('#resultBody')
     

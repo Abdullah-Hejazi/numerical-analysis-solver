@@ -39,7 +39,7 @@ function startSecant() {
 
         let currentError = Math.abs(((xr - xrold) / xr)) * 100
 
-        addIteration(i, xim1, fxim1, xrold, fxrold, currentError)
+        addSecantIteration(i, xim1, fxim1, xrold, fxrold, currentError)
 
         xim1 = xrold
         xrold = xr
@@ -52,7 +52,7 @@ function startSecant() {
     return xrold
 }
 
-function addIteration(i, xim1, fxim1, xr, fxrold, currentError) {
+function addSecantIteration(i, xim1, fxim1, xr, fxrold, currentError) {
     var decimal = Number($('#secant #decimal').val())
     let result = $('#resultBody')
     

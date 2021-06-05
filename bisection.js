@@ -49,7 +49,7 @@ function startBisection() {
             }
         }
 
-        addIteration(i, xLower, fxl, xUpper, fxu, xr, fxr, currentError)
+        addBisectionIteration(i, xLower, fxl, xUpper, fxu, xr, fxr, currentError)
 
         if (fxl * fxr < 0) {
             xUpper = xr
@@ -66,7 +66,7 @@ function startBisection() {
     return xrOld
 }
 
-function addIteration(i, xLower, fxl, xUpper, fxu, xr, fxr, currentError) {
+function addBisectionIteration(i, xLower, fxl, xUpper, fxu, xr, fxr, currentError) {
     var decimal = Number($('#bisection #decimal').val())
     let result = $('#resultBody')
     

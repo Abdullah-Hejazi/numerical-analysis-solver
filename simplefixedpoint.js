@@ -36,17 +36,17 @@ function startSimpleFixedPoint() {
         let currentError = Math.abs(((xr - xrOld) / xr) * 100)
 
         if (currentError < error) {
-            addIteration(i, xr, currentError)
+            addSimpleFixedIteration(i, xr, currentError)
             return xr
         }
 
-        addIteration(i, xr, currentError)
+        addSimpleFixedIteration(i, xr, currentError)
     }
 
     return xr
 }
 
-function addIteration(i, xr, currentError) {
+function addSimpleFixedIteration(i, xr, currentError) {
     var decimal = Number($('#simplefixed #decimal').val())
     let result = $('#resultBody')
     
