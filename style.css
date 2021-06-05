@@ -1,6 +1,123 @@
-.select-section {
-    width: 80vw;
+html {
+    background-color: rgb(245, 245, 245);
+}
+
+body {
+    background-color: rgb(245, 245, 245) !important;
+}
+
+.select-container {
+    padding: 20px;
+    max-width: 80vw;
+    width: 800px;
     margin: 50px auto;
     display: flex;
-    background-color: red;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+.equation-container {
+    padding: 20px;
+    max-width: 80vw;
+    width: 800px;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: 100%;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+.result-container {
+    padding: 20px;
+    max-width: 80vw;
+    width: 1000px;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: 100%;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+.x-data {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-gap: 5%;
+}
+
+.matrix-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.matrix {
+    width: 128px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    border-left: 2.5px solid rgb(194, 194, 194);
+}
+
+.matrix::before {
+    content: " ";
+    background-color: rgb(194, 194, 194);
+    width: 16px;
+    text-align: center;
+    height: 2.5px;
+    position: absolute;
+    z-index: 100;
+    display: block;
+    margin: 0 auto;
+}
+
+.matrix::after {
+    content: " ";
+    background-color: rgb(194, 194, 194);
+    width: 16px;
+    text-align: center;
+    height: 2.5px;
+    right: 15px;
+    position: relative;
+    z-index: 100;
+    display: block;
+    margin: 0 auto;
+}
+
+.matrix2 {
+    border-left: 1px solid rgb(194, 194, 194);
+    margin-left: 5px;
+    padding-left: 5px;
+    display: grid;
+    grid-template-columns: auto;
+    border-right: 2.5px solid rgb(194, 194, 194);
+}
+
+.matrix2::after {
+    content: " ";
+    background-color: rgb(194, 194, 194);
+    width: 16px;
+    text-align: center;
+    height: 2.5px;
+    left: 12px;
+    position: relative;
+    z-index: 100;
+    display: block;
+    margin: 0 auto;
+}
+
+.matrix2::before {
+    content: " ";
+    background-color: rgb(194, 194, 194);
+    width: 16px;
+    text-align: center;
+    height: 2.5px;
+    position: relative;
+    left: 12px;
+    z-index: 100;
+    display: block;
+    margin: 0 auto;
+}
+
+.matrix-number {
+    width: 32px !important;
+    height: 32px !important;
 }

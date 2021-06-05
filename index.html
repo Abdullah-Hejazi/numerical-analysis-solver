@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Numerical Analysis</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="style.css">
 </head>
 <body>
-    <div class="select-section">
-        <select class="form-select" id="method-select">
+    <div class="select-container">
+        <select class="form-select m-1" id="method-select">
             <option selected value="1">Bisection Method</option>
             <option value="2">False Position Method</option>
             <option value="3">Simple Fixed Point Method</option>
@@ -20,11 +20,157 @@
             <option value="6">LU Decomposition Method</option>
             <option value="7">Cramers Rule Method</option>
         </select>
-        <button onclick="ChangeMethod()">Select Method</button>
+        <button class="btn btn-primary m-1" onclick="ChangeMethod()">Select Method</button>
     </div>
 
+    <!-- Equation Section -->
+    <div>
+        <div class="equation-container" id="bisection">
+            <h3 class="m-1 mb-4">Bisection Method</h3>
+            <input id="funcInput" type="text" class="form-control m-1" placeholder="f(x)">
+            <div class="x-data">
+                <input id="xLower" type="text" class="form-control m-1" placeholder="xl">
+                <input id="xUpper" type="text" class="form-control m-1" placeholder="xu">
+                <input id="error" type="text" class="form-control m-1" placeholder="ɛ">
+            </div>
+            <input id="maxIterations" type="text" class="form-control m-1" placeholder="iterations">
+            <input id="decimal" type="text" class="form-control m-1" placeholder="decimal">
+        
+            <button onclick="solveBisection()" class="btn btn-success mt-2">Calculate</button>
+        </div>
+    
+        <div class="equation-container" id="falseposition">
+            <h3 class="m-1 mb-4">False Position Method</h3>
+            <input id="funcInput" type="text" class="form-control m-1" placeholder="f(x)">
+            <div class="x-data">
+                <input id="xLower" type="text" class="form-control m-1" placeholder="xl">
+                <input id="xUpper" type="text" class="form-control m-1" placeholder="xu">
+                <input id="error" type="text" class="form-control m-1" placeholder="ɛ">
+            </div>
+            <input id="maxIterations" type="text" class="form-control m-1" placeholder="iterations">
+            <input id="decimal" type="text" class="form-control m-1" placeholder="decimal">
+            <button onclick="solveFalsePosition()" class="btn btn-success mt-2">Calculate</button>
+        </div>
+    
+        <div class="equation-container" id="simplefixed">
+            <h3 class="m-1 mb-4">Simple Fixed Point Method</h3>
+            <input id="funcInput" type="text" class="form-control m-1" placeholder="x=">
+            <div class="x-data">
+                <input id="xZero" type="text" class="form-control m-1" placeholder="x0">
+                <input id="error" type="text" class="form-control m-1" placeholder="ɛ">
+            </div>
+            <input id="maxIterations" type="text" class="form-control m-1" placeholder="iterations">
+            <input id="decimal" type="text" class="form-control m-1" placeholder="decimal">
+            <button onclick="solveSimpleFixedPoint()" class="btn btn-success mt-2">Calculate</button>
+        </div>
+    
+        <div class="equation-container" id="newton">
+            <h3 class="m-1 mb-4">Newton Method</h3>
+            <input id="funcInput" type="text" class="form-control m-1" placeholder="f(x)">
+            <div class="x-data">
+                <input id="xZero" type="text" class="form-control m-1" placeholder="x0">
+                <input id="error" type="text" class="form-control m-1" placeholder="ɛ">
+            </div>
+            <input id="maxIterations" type="text" class="form-control m-1" placeholder="iterations">
+            <input id="decimal" type="text" class="form-control m-1" placeholder="decimal">
+        </div>
+    
+        <div class="equation-container" id="secant">
+            <h3 class="m-1 mb-4">Secant Method</h3>
+            <input id="funcInput" type="text" class="form-control m-1" placeholder="f(x)">
+            <div class="x-data">
+                <input id="xZero" type="text" class="form-control m-1" placeholder="x0">
+                <input id="xMinusOne" type="text" class="form-control m-1" placeholder="x-1">
+                <input id="error" type="text" class="form-control m-1" placeholder="ɛ">
+            </div>
+            <input id="maxIterations" type="text" class="form-control m-1" placeholder="iterations">
+            <input id="decimal" type="text" class="form-control m-1" placeholder="decimal">
+        </div>
+    
+        <div class="equation-container" id="gauss">
+            <h3 class="m-1 mb-4">Gauss Elemenation Method</h3>
+            <div class="matrix-container">
+                <div class="matrix">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                </div>
+                <div class="matrix2">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                </div>
+            </div>
+        </div>
+    
+        <div class="equation-container" id="ludecomp">
+            <h3 class="m-1 mb-4">LU Decomposition Method</h3>
+            <div class="matrix-container">
+                <div class="matrix">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                </div>
+                <div class="matrix2">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                </div>
+            </div>
+        </div>
+        
+        <div class="equation-container" id="cramer">
+            <h3 class="m-1 mb-4">Cramer's Rule Method</h3>
+            <div class="matrix-container">
+                <div class="matrix">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                </div>
+                <div class="matrix2">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result Page -->
+    <div>
+        <div class="result-container" id="resultTable">
+            <h3 class="m-1 mb-4">Result</h3>
+
+            <table>
+                <thead id="thead"></thead>
+                <tbody id="resultBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="jquery.js"></script>
     <script src="math.js"></script>
     <script src="bisection.js"></script>
+    <script src="falseposition.js"></script>
+    <script src="simplefixedpoint.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
