@@ -120,22 +120,24 @@
             <h3 class="m-1 mb-4">LU Decomposition Method</h3>
             <div class="matrix-container">
                 <div class="matrix">
-                    <input type="text" class="form-control m-1 matrix-number">
-                    <input type="text" class="form-control m-1 matrix-number">
-                    <input type="text" class="form-control m-1 matrix-number">
-                    <input type="text" class="form-control m-1 matrix-number">
-                    <input type="text" class="form-control m-1 matrix-number">
-                    <input type="text" class="form-control m-1 matrix-number">
-                    <input type="text" class="form-control m-1 matrix-number">
-                    <input type="text" class="form-control m-1 matrix-number">
-                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number" value="2">
+                    <input type="text" class="form-control m-1 matrix-number" value="1">
+                    <input type="text" class="form-control m-1 matrix-number" value="1">
+                    <input type="text" class="form-control m-1 matrix-number" value="4">
+                    <input type="text" class="form-control m-1 matrix-number" value="1">
+                    <input type="text" class="form-control m-1 matrix-number" value="0">
+                    <input type="text" class="form-control m-1 matrix-number" value="-2">
+                    <input type="text" class="form-control m-1 matrix-number" value="2">
+                    <input type="text" class="form-control m-1 matrix-number" value="1">
                 </div>
                 <div class="matrix2">
-                    <input type="text" class="form-control m-1 matrix-number">
-                    <input type="text" class="form-control m-1 matrix-number">
-                    <input type="text" class="form-control m-1 matrix-number">
+                    <input type="text" class="form-control m-1 matrix-number" value="8">
+                    <input type="text" class="form-control m-1 matrix-number" value="11">
+                    <input type="text" class="form-control m-1 matrix-number" value="3">
                 </div>
             </div>
+
+            <button onclick="solveLUDecomposition()" class="btn btn-success mt-2">Calculate</button>
         </div>
         
         <div class="equation-container" id="cramer">
@@ -181,6 +183,7 @@
     <script src="newton.js"></script>
     <script src="gauss.js"></script>
     <script src="secant.js"></script>
+    <script src="ludecomp.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
