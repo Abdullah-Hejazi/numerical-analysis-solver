@@ -60,16 +60,19 @@ function startLUDecomposition() {
         u[i].pop()
     }
 
-    console.log(u)
-    console.log(l)
+    l[1][0] = m21
+    l[2][0] = m31
+    l[2][1] = m32
 
-    let z = a[2][3] / a[2][2]
-    let y = (a[1][3] - (z * a[1][2])) / a[1][1]
-    let x = (a[0][3] - (z * a[0][2]) - (y * a[0][1])) / a[0][0]
+    let lcb = solve(l, [
+        original[0][3],
+        original[1][3],
+        original[2][3]
+    ])
 
-    addLUDecompIteration(x, y, z)
-    
+    let uxc = solve(u, lcb)
 
+    addLUDecompIteration(uxc[0], uxc[1], uxc[2])
 }
 
 function get2DMatrix() {
@@ -81,6 +84,21 @@ function get2DMatrix() {
         [(1 * matrix[3].value), (1 * matrix[4].value), (1 * matrix[5].value), (1 * matrix2[1].value)],
         [(1 * matrix[6].value), (1 * matrix[7].value), (1 * matrix[8].value), (1 * matrix2[2].value)]
     ]
+}
+
+function solve(matrix, matrix2) {
+    let x = 0, y = 0, z = 0
+    if (matrix[0][1] == 0 && matrix[0][2] == 0) {
+        x = matrix2[0] / matrix[0][0]
+        y = (matrix2[1] - (matrix[1][0] * x)) / matrix[1][1]
+        z = (matrix2[2] - (x * matrix[2][0]) - (y * matrix[2][1])) / matrix[2][2]
+        return [x, y, z]
+    } else {
+        z = matrix2[2] / matrix[2][2]
+        y = (matrix2[1] - (z * matrix[1][2])) / matrix[1][1]
+        x = (matrix2[0] - (z * matrix[0][2]) - (y * matrix[0][1])) / matrix[0][0]
+        return [x, y, z]
+    }
 }
 
 function addLUDecompIteration(x, y, z) {
