@@ -14,3 +14,4 @@ secant = 0.95x^3 - 5.9x^2 + 10.9x - 6
 3.5 2.5 0.5
 
 New comment 1
+HEJAZI
